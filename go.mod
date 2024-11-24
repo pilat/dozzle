@@ -5,7 +5,7 @@ require (
 	github.com/alexflint/go-arg v1.5.1
 	github.com/beme/abide v0.0.0-20190723115211-635a09831760
 	github.com/docker/docker v27.3.1+incompatible
-	github.com/docker/go-connections v0.5.0 // indirect
+	github.com/docker/go-connections v0.5.0
 	github.com/docker/go-units v0.5.0 // indirect
 	github.com/dustin/go-humanize v1.0.1
 	github.com/gogo/protobuf v1.3.2 // indirect
@@ -25,6 +25,7 @@ require (
 
 require (
 	github.com/PuerkitoBio/goquery v1.10.0
+	github.com/buger/jsonparser v1.1.1
 	github.com/go-chi/chi/v5 v5.1.0
 	github.com/go-chi/jwtauth/v5 v5.3.1
 	github.com/puzpuzpuz/xsync/v3 v3.4.0
@@ -42,7 +43,6 @@ require (
 	github.com/alexflint/go-scalar v1.2.0 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
-	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/containerd/log v0.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

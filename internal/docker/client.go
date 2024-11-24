@@ -108,7 +108,18 @@ func NewLocalClient(f map[string][]string, hostname string) (Client, error) {
 
 	log.Debug().Interface("filterArgs", filterArgs).Msg("Creating local client")
 
-	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
+	httpClient, err := newDockerHTTPClient()
+	if err != nil {
+		return nil, err
+	}
+
+	opts := []client.Opt{
+		client.WithHTTPClient(httpClient),
+		client.FromEnv,
+		client.WithAPIVersionNegotiation(),
+	}
+
+	cli, err := client.NewClientWithOpts(opts...)
 
 	if err != nil {
 		return nil, err
@@ -154,7 +165,13 @@ func NewRemoteClient(f map[string][]string, host Host) (Client, error) {
 		return nil, fmt.Errorf("invalid scheme: %s", host.URL.Scheme)
 	}
 
+	httpClient, err := newDockerHTTPClient()
+	if err != nil {
+		return nil, err
+	}
+
 	opts := []client.Opt{
+		client.WithHTTPClient(httpClient),
 		client.WithHost(host.URL.String()),
 	}
 
